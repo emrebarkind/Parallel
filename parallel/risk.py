@@ -16,7 +16,8 @@ def add_operating_metrics(df: pd.DataFrame) -> pd.DataFrame:
     result = df.copy()
     days_since_refill = (result["date"] - result["last_refill_date"]).dt.days
     result["days_since_refill"] = days_since_refill.fillna(7).clip(lower=1)
-    result["sales_velocity"] = result["units_sold"].clip(lower=0) / result["days_since_refill"]
+    velocity_days = result.get("observation_days", result["days_since_refill"]).clip(lower=1)
+    result["sales_velocity"] = result["units_sold"].clip(lower=0) / velocity_days
 
     result["stock_fill_ratio"] = (
         result["current_stock"].clip(lower=0) / result["max_capacity"].clip(lower=1)

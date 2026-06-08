@@ -26,6 +26,17 @@ date,machine_id,location,product_id,product_name,category,price,current_stock,ma
 2026-05-01,M-001,Engineering Building,P-001,Water 500ml,Drink,1.20,6,30,14,2026-04-29,OK
 ```
 
+## Sample Dataset
+
+The included `data/sample_vending_data.csv` keeps this schema and uses daily records across 28 days. Each row represents the observed end-of-day state for one product slot in one machine:
+
+- `units_sold` is the number of units sold that day.
+- `current_stock` is the remaining stock at the end of that day.
+- `last_refill_date` changes when a refill or fresh-food rotation occurs.
+- Repeated `machine_id` / `product_id` rows over time are expected.
+
+The report engine summarizes repeated daily rows into one current decision row per machine/product using the latest stock state and recent sales velocity.
+
 ## Notes
 
 - The current schema is intentionally simple.

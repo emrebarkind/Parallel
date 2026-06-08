@@ -22,4 +22,32 @@ def load_vending_data(path: Path) -> pd.DataFrame:
     df["machine_status"] = df["machine_status"].fillna("UNKNOWN").astype(str).str.upper()
     df["category"] = df["category"].fillna("Unknown")
 
-    return df
+    return df.sort_values(["date", "machine_id", "product_id"]).reset_index(drop=True)
+
+
+def prepare_analysis_data(df: pd.DataFrame, lookback_days: int = 7) -> pd.DataFrame:
+    """Build one current decision row per machine/product from multi-day records."""
+    if df.empty:
+        return df.copy()
+
+    group_columns = ["machine_id", "product_id"]
+    latest_date = df["date"].max()
+    window_start = latest_date - pd.Timedelta(days=lookback_days - 1)
+    recent_df = df[df["date"] >= window_start]
+
+    latest_rows = (
+        df.sort_values(["date", "machine_id", "product_id"])
+        .groupby(group_columns, as_index=False)
+        .tail(1)
+        .drop(columns=["units_sold"])
+    )
+
+    recent_sales = (
+        recent_df.groupby(group_columns, as_index=False)
+        .agg(units_sold=("units_sold", "sum"), observation_days=("date", "nunique"))
+    )
+
+    analysis_df = latest_rows.merge(recent_sales, on=group_columns, how="left")
+    analysis_df["units_sold"] = analysis_df["units_sold"].fillna(0)
+    analysis_df["observation_days"] = analysis_df["observation_days"].fillna(1)
+    return analysis_df.sort_values(group_columns).reset_index(drop=True)
