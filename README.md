@@ -30,6 +30,20 @@ The first version does **not** require live telemetry or direct vending machine 
 sample_vending_data.csv -> analysis -> recommendations -> weekly_decision_report.md
 ```
 
+## Project Structure
+
+```text
+generate_report.py        # Small demo entry point
+parallel/
+  config.py               # MVP paths and required CSV columns
+  data.py                 # CSV loading and validation
+  risk.py                 # Stockout, waste, and operating metrics
+  recommendations.py      # Service priority and action logic
+  report.py               # Analysis orchestration and Markdown output
+```
+
+The package is intentionally small so operators and contributors can understand the decision logic without navigating a large framework.
+
 ## Example Recommendations
 
 - Restock high-demand products before the next service window
@@ -49,7 +63,7 @@ pip install -r requirements.txt
 Generate a sample report:
 
 ```bash
-python generate_report.py
+python3 generate_report.py
 ```
 
 The generated report will be available at:
