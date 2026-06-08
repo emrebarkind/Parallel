@@ -3,11 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 from .config import DATA_PATH, REPORT_PATH
-<<<<<<< HEAD
 from .data import load_vending_data, prepare_analysis_data
-=======
-from .data import load_vending_data
->>>>>>> fd15a1febe40fb5cdee277fb0fb48ed8fba6444e
 from .recommendations import add_recommendations
 from .risk import add_risk_columns
 
@@ -17,11 +13,7 @@ RISK_ORDER = {"High": 0, "Medium": 1, "Low": 2}
 
 
 def analyze_vending_data(df: pd.DataFrame) -> pd.DataFrame:
-<<<<<<< HEAD
     return add_recommendations(add_risk_columns(prepare_analysis_data(df)))
-=======
-    return add_recommendations(add_risk_columns(df))
->>>>>>> fd15a1febe40fb5cdee277fb0fb48ed8fba6444e
 
 
 def generate_report(
@@ -46,11 +38,7 @@ def build_markdown_report(df: pd.DataFrame) -> str:
         "## Executive Summary",
         "",
         f"- Machines analyzed: {df['machine_id'].nunique()}",
-<<<<<<< HEAD
         f"- Product slots analyzed: {len(df)}",
-=======
-        f"- Products analyzed: {len(df)}",
->>>>>>> fd15a1febe40fb5cdee277fb0fb48ed8fba6444e
         f"- High stockout risks: {high_stockout_count}",
         f"- High waste risks: {high_waste_count}",
         f"- High priority actions: {high_priority_count}",
