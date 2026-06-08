@@ -1,0 +1,11 @@
+date,machine_id,location,product_id,product_name,category,price,current_stock,max_capacity,units_sold,last_refill_date,machine_status
+2026-05-01,M-001,Engineering Building,P-001,Water 500ml,Drink,1.20,6,30,14,2026-04-29,OK
+2026-05-01,M-001,Engineering Building,P-002,Protein Bar,Snack,2.50,18,24,2,2026-04-29,OK
+2026-05-01,M-001,Engineering Building,P-003,Cola,Drink,1.50,10,30,9,2026-04-29,OK
+2026-05-01,M-002,Library,P-001,Water 500ml,Drink,1.20,22,30,5,2026-04-30,OK
+2026-05-01,M-002,Library,P-004,Fresh Sandwich,Fresh Food,3.80,14,16,1,2026-04-30,OK
+2026-05-01,M-002,Library,P-005,Coffee Can,Drink,2.00,4,24,12,2026-04-30,OK
+2026-05-01,M-003,Student Residence,P-006,Energy Drink,Drink,2.20,3,24,15,2026-04-28,OK
+2026-05-01,M-003,Student Residence,P-007,Chips,Snack,1.80,20,24,3,2026-04-28,OK
+2026-05-01,M-004,Main Hall,P-008,Chocolate Bar,Snack,1.40,8,24,10,2026-04-29,OK
+2026-05-01,M-004,Main Hall,P-009,Greek Yogurt,Fresh Food,2.90,13,16,1,2026-04-29,SERVICE_CHECK
