@@ -80,6 +80,12 @@ The generated report will be available at:
 reports/weekly_decision_report.md
 ```
 
+You can also review the committed example output at:
+
+```text
+reports/sample_weekly_decision_report.md
+```
+
 ## Roadmap
 
 ### v0.1 — Data to Report
