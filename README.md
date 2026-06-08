@@ -11,3 +11,4 @@ The first MVP focuses on a simple workflow:
 3. Prioritize machines for service
 4. Generate a Weekly Decision Report
 5. Collect operator feedback for future improvement# Parallel
+# 
