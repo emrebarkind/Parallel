@@ -30,8 +30,11 @@ The first version does **not** require live telemetry or direct vending machine 
 sample_vending_data.csv -> analysis -> recommendations -> weekly_decision_report.md
 ```
 
+<<<<<<< HEAD
 The sample dataset includes 28 days of daily product-slot records across 5 machines and 15 products. The report engine summarizes those records into one current decision row per machine/product using the latest stock state and recent sales velocity.
 
+=======
+>>>>>>> fd15a1febe40fb5cdee277fb0fb48ed8fba6444e
 ## Project Structure
 
 ```text

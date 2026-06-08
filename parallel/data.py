@@ -22,6 +22,7 @@ def load_vending_data(path: Path) -> pd.DataFrame:
     df["machine_status"] = df["machine_status"].fillna("UNKNOWN").astype(str).str.upper()
     df["category"] = df["category"].fillna("Unknown")
 
+<<<<<<< HEAD
     return df.sort_values(["date", "machine_id", "product_id"]).reset_index(drop=True)
 
 
@@ -51,3 +52,6 @@ def prepare_analysis_data(df: pd.DataFrame, lookback_days: int = 7) -> pd.DataFr
     analysis_df["units_sold"] = analysis_df["units_sold"].fillna(0)
     analysis_df["observation_days"] = analysis_df["observation_days"].fillna(1)
     return analysis_df.sort_values(group_columns).reset_index(drop=True)
+=======
+    return df
+>>>>>>> fd15a1febe40fb5cdee277fb0fb48ed8fba6444e
